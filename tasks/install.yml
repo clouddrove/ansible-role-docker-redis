@@ -7,8 +7,7 @@
     mode: 0755
     owner: root
     group: root
-  tags:
-      - redis
+
 - name: copy redis script
   template:
     src: "redis.service"
@@ -16,14 +15,11 @@
     mode: 0644
     owner: root
     group: root
-  tags:
-      - redis-install
+
 - name: reload systemd
   command: systemctl daemon-reload
   notify:
     - restart redis
-  tags:
-      - redis
 
 - name: wait for redis to become ready
   wait_for:
@@ -33,5 +29,3 @@
       delay: 5
       connect_timeout: 15
       timeout: 300
-  tags:
-     - redis
