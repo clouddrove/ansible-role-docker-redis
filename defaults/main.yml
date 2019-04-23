@@ -1,7 +1,4 @@
 ---
-mount_drive: true
-mount_path: /data
-mount_fs: ext4
 
 redis_datadir: /data/lib/redis
 

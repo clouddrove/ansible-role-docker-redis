@@ -27,8 +27,8 @@
 
 - name: wait for redis to become ready
   wait_for:
-      host: "{{redis_server_bind}}"
-      port: "{{redis_server_port}}"
+      host: "{{ redis_server_bind }}"
+      port: "{{ redis_server_port }}"
       state: started
       delay: 5
       connect_timeout: 15

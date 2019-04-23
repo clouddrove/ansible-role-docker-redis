@@ -5,7 +5,7 @@
     state: directory
     owner: "{{ redis_user }}"
     group: "{{ redis_group }}"
-    mode:   0777
+    mode:   0755
     recurse: yes
   changed_when: "False"
   with_items:
@@ -21,7 +21,7 @@
      dest: "{{ redis_server_config_dir }}/{{ item | basename }}"
      owner: "{{ redis_user }}"
      group: "{{ redis_group }}"
-     mode: 0777
+     mode: 0755
      src: "{{ item }}"
   with_items:
     - redis_server.conf
