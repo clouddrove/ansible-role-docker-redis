@@ -14,5 +14,3 @@
      group:  "{{ redis_group }}"
   tags:
     - redis
-
-
