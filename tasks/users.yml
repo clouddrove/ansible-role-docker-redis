@@ -1,0 +1,18 @@
+---
+
+- name: setup group
+  group:
+     name: "{{ redis_group }}"
+     system: no
+  tags:
+    - redis
+
+- name: setup user
+  user:
+     name:  "{{ redis_user }}"
+     system: no
+     group:  "{{ redis_group }}"
+  tags:
+    - redis
+
+

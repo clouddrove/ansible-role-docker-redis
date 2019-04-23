@@ -1,0 +1,9 @@
+[Unit]
+Description=redis Server
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStart=/usr/local/bin/redis
+[Install]
+WantedBy=multi-user.target
