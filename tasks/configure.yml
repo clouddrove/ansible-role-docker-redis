@@ -22,7 +22,7 @@
      owner: "{{ redis_user }}"
      group: "{{ redis_group }}"
      mode: 0777
-     src: {{ item }}
+     src: "{{ item }}"
   with_items:
     - redis_server.conf
   register: config_change
