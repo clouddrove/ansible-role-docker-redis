@@ -1,33 +1,27 @@
 ---
+
 - name: create redis dirs
   file:
     path: "{{ item|safe|trim }}"
     state: directory
     owner: "{{ redis_user }}"
     group: "{{ redis_group }}"
-    mode:   0755
-    recurse: yes
-  changed_when: "False"
+    mode: 0755
+    recurse: true
+  changed_when: false
   with_items:
     - "{{ redis_server_opt_dir }}"
     - "{{ redis_server_log_dir }}"
     - "{{ redis_server_config_dir }}"
     - "{{ redis_server_data_dir }}"
-  tags:
-    - redis
 
 - name: create redis configuration file
   template:
-     dest: "{{ redis_server_config_dir }}/{{ item | basename }}"
-     owner: "{{ redis_user }}"
-     group: "{{ redis_group }}"
-     mode: 0755
-     src: "{{ item }}"
+    dest: "{{ redis_server_config_dir }}/{{ item | basename }}"
+    owner: "{{ redis_user }}"
+    group: "{{ redis_group }}"
+    mode: 0755
+    src: "{{ item }}"
   with_items:
-    - redis_server.conf
+    - config/redis_server.conf
   register: config_change
-  tags:
-    - redis
-
-
-

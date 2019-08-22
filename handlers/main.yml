@@ -1,6 +1,20 @@
+---
+# handlers for ansible-role-docker-redis
+
 - name: restart redis
   service:
     name: redis
     state: restarted
-    enabled: yes
+    enabled: true
 
+- name: start redis
+  service:
+    name: redis
+    state: started
+    enabled: true
+
+- name: reload redis
+  service:
+    name: redis
+    state: reloaded
+    enabled: true

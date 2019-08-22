@@ -3,14 +3,10 @@
 - name: setup group
   group:
      name: "{{ redis_group }}"
-     system: no
-  tags:
-    - redis
+     system: false
 
 - name: setup user
   user:
-     name:  "{{ redis_user }}"
-     system: no
-     group:  "{{ redis_group }}"
-  tags:
-    - redis
+     name: "{{ redis_user }}"
+     system: false
+     group: "{{ redis_group }}"

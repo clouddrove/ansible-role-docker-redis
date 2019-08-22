@@ -16,16 +16,23 @@
     owner: root
     group: root
 
-- name: reload systemd
-  command: systemctl daemon-reload
-  notify:
-    - restart redis
+- name: restart redis service is restarted
+  service:
+    name: redis
+    state: restarted
+  changed_when: false
 
 - name: wait for redis to become ready
   wait_for:
-      host: "{{ redis_server_bind }}"
-      port: "{{ redis_server_port }}"
-      state: started
-      delay: 5
-      connect_timeout: 15
-      timeout: 300
+    host: "{{ redis_server_bind }}"
+    port: "{{ redis_server_port }}"
+    state: started
+    delay: 5
+    connect_timeout: 15
+    timeout: 300
+
+- name: Install redis tools
+  apt:
+    name: redis-tools
+    state: present
+    update_cache: true
