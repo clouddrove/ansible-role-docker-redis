@@ -16,6 +16,12 @@
     owner: root
     group: root
 
+- name: Install redis tools
+  apt:
+    name: redis-tools
+    state: present
+    update_cache: true
+
 - name: restart redis service is restarted
   service:
     name: redis
@@ -30,9 +36,3 @@
     delay: 5
     connect_timeout: 15
     timeout: 300
-
-- name: Install redis tools
-  apt:
-    name: redis-tools
-    state: present
-    update_cache: true
