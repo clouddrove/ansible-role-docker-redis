@@ -4,7 +4,7 @@
 <p align="center"> <img src="https://user-images.githubusercontent.com/50652676/62451340-ba925480-b78b-11e9-99f0-13a8a9cc0afa.png" width="100" height="100"></p>
 
 <h1 align="center">
-    Ansible Role Redis
+    Ansible Role Docker Redis
 </h1>
 
 <p align="center" style="font-size: 1.2rem;">
@@ -14,23 +14,29 @@
 <p align="center">
 
 <a href="https://www.ansible.com">
-  <img src="https://img.shields.io/badge/Ansible-2.8-green" alt="Ansible">
+  <img src="https://img.shields.io/badge/Ansible-2.8-green?style=flat&logo=ansible" alt="Ansible">
 </a>
 <a href="LICENSE.md">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="Licence">
+</a>
+<a href="https://ubuntu.com/">
+  <img src="https://img.shields.io/badge/ubuntu-16.x-orange?style=flat&logo=ubuntu" alt="Distribution">
+</a>
+<a href="https://ubuntu.com/">
+  <img src="https://img.shields.io/badge/ubuntu-18.x-orange?style=flat&logo=ubuntu" alt="Distribution">
 </a>
 
 
 </p>
 <p align="center">
 
-<a href='https://facebook.com/sharer/sharer.php?u=https://github.com/clouddrove/ansible-role-Redis'>
+<a href='https://facebook.com/sharer/sharer.php?u=https://github.com/clouddrove/ansible-role-docker-redis'>
   <img title="Share on Facebook" src="https://user-images.githubusercontent.com/50652676/62817743-4f64cb80-bb59-11e9-90c7-b057252ded50.png" />
 </a>
-<a href='https://www.linkedin.com/shareArticle?mini=true&title=Ansible+Role+Redis&url=https://github.com/clouddrove/ansible-role-Redis'>
+<a href='https://www.linkedin.com/shareArticle?mini=true&title=Ansible+Role+Docker+Redis&url=https://github.com/clouddrove/ansible-role-docker-redis'>
   <img title="Share on LinkedIn" src="https://user-images.githubusercontent.com/50652676/62817742-4e339e80-bb59-11e9-87b9-a1f68cae1049.png" />
 </a>
-<a href='https://twitter.com/intent/tweet/?text=Ansible+Role+Redis&url=https://github.com/clouddrove/ansible-role-Redis'>
+<a href='https://twitter.com/intent/tweet/?text=Ansible+Role+Docker+Redis&url=https://github.com/clouddrove/ansible-role-docker-redis'>
   <img title="Share on Twitter" src="https://user-images.githubusercontent.com/50652676/62817740-4c69db00-bb59-11e9-8a79-3580fbbf6d5c.png" />
 </a>
 
@@ -39,9 +45,9 @@
 
 
 
-We eat, drink, sleep and most importantly love **DevOps**. We are thinking Automation is better way to setup a server and install the required environments. It is critical to maintaining same environment on local, testing or production system so resolve this we move to create small role for environments element.
+We eat, drink, sleep and most importantly love **DevOps**. DevOps always promotes automation and standardisation. While setting up various environments like local, dev, testing, production, etc. it is critical to maintain the same environment across. This can easily be achieved using automating the environment setup & installation with the help of ansible-playbooks.
 
-This role is basically combination of [tasks in ansible-playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html) and includes tests.
+Smaller roles are created for each environment elements; which also include tasks & tests. These roles can then be grouped together in [ansible-playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html) to achieve the desired yet consistent results.
 
 
 
@@ -51,7 +57,6 @@ This module has a few dependencies:
 
 - [Ansible2.8](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 - [Python](https://www.python.org/downloads)
-- [Molecule](https://molecule.readthedocs.io/en/stable/installation.html)
 - [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu)
 
 
@@ -60,46 +65,94 @@ This module has a few dependencies:
 ## What Includes
 
 Followiing things includes in this role:
-- redis
 - redis-cli
+- redis-server
 
 
 
 
 
-## Examples
-
-**IMPORTANT:** Since the `master` branch used in `source` varies based on new modifications, we suggest that you use the release versions [here](https://github.com/clouddrove/ansible-role-Redis/releases).
 
 
-### Simple Example
-For including the role in your playbook this is the basic configuration:
-```ansible
-    - hosts: localhost
-      remote_user: root
-      become: true
-      roles:
-        - ansible-role-Redis
+## Example Playbook
+
+**IMPORTANT:** Since the `master` branch used in `source` varies based on new modifications, we suggest that you use the release versions [here](https://github.com/clouddrove/ansible-role-docker-redis/releases).
+
+
+```yaml
+- hosts: localhost
+  remote_user: ubuntu
+  become: true
+  roles:
+    - clouddrove.ansible_role_docker_redis
+```
+
+
+## Variables
+
+```yaml
+  redis_version: "5.0.3"
+  redis_user: redis
+  redis_group: redis
+  mount_path: /data
+  redis_server_opt_dir: "/opt/redis-server"
+  redis_server_config_dir: "{{ redis_server_opt_dir }}/config"
+  redis_server_log_dir: "/var/log/redis-server"
+  redis_server_data_dir: "{{ mount_path }}/redis-server"
+  redis_server_bind: 0.0.0.0
+  redis_server_port: 6379
+  redis_server_password: false
+  redis_server_min_slaves_to_write: 0
+  redis_server_min_slaves_max_lag: 10
+  redis_server_tcp_backlog: 10000
+  redis_server_tcp_keepalive: 20
+  redis_server_maxclients: 30000
+  redis_server_timeout: 0
+  redis_server_slaveof: false
+  redis_server_slave_read_only: "yes"
+  redis_server_slave_priority: 100
+  redis_server_repl_backlog_size: false
+  redis_server_dir: /var/lib/redis
+  redis_server_logfile: '"/var/log/redis/redis-server.log"'
+  redis_server_databases: 16
+  redis_server_loglevel: notice
+  redis_server_slowlog_log_slower_than: 10000
+  redis_server_slowlog_max_len: 128
+  redis_server_maxmemory: false
+  redis_server_maxmemory_policy: noeviction
+  redis_server_rename_commands: []
+  redis_server_save:
+    - 900 1
+    - 300 10
+    - 60 10000
+  redis_server_stop_writes_on_bgsave_error: "yes"
+  redis_server_rdbcompression: "yes"
+  redis_server_rdbchecksum: "yes"
+  redis_server_appendonly: "no"
+  redis_server_appendfilename: "appendonly.aof"
+  redis_server_appendfsync: "everysec"
+  redis_server_no_appendfsync_on_rewrite: "no"
+  redis_server_auto_aof_rewrite_percentage: "100"
+  redis_server_auto_aof_rewrite_min_size: "64mb"
+  redis_server_notify_keyspace_events: '""'
+```
+
+
+## Installation
+
+```console
+  $ ansible-galaxy install clouddrove.ansible_role_docker_redis
 ```
 
 
 
 
-## Testing
-
-
-In this module testing is performed with [molecule](https://molecule.readthedocs.io/en/stable/index.html) and it is designed to aid in the development and testing of Ansible roles with multiple instances, operating systems and distributions, virtualization providers, test frameworks and testing scenarios.
-
-You need to run the following command in the root of Ansible Role:
-```molecule
-  molecule test
-```
 
 
 ## Feedback
-If you come accross a bug or have any feedback, please log it in our [issue tracker](https://github.com/clouddrove/ansible-role-Redis/issues), or feel free to drop us an email at [hello@clouddrove.com](mailto:hello@clouddrove.com).
+If you come accross a bug or have any feedback, please log it in our [issue tracker](https://github.com/clouddrove/ansible-role-docker-redis/issues), or feel free to drop us an email at [hello@clouddrove.com](mailto:hello@clouddrove.com).
 
-If you have found it worth your time, go ahead and give us a ★ on [our GitHub](https://github.com/clouddrove/ansible-role-Redis)!
+If you have found it worth your time, go ahead and give us a ★ on [our GitHub](https://github.com/clouddrove/ansible-role-docker-redis)!
 
 ## About us
 
