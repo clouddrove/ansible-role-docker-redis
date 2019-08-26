@@ -1,24 +1,29 @@
 ---
+# redis version
+redis_version: "5.0.3"
 
-redis_datadir: /data/lib/redis
-
+# Users & groups
 redis_user: redis
 redis_group: redis
 
+# Configurations
+mount_path: /data
 redis_server_opt_dir: "/opt/redis-server"
 redis_server_config_dir: "{{ redis_server_opt_dir }}/config"
-redis_server_log_dir: "{{ mount_path }}/log/redis-server"
-redis_server_data_dir: "{{ mount_path }}/var/lib/redis-server"
-redis_version: "5.0.3"
-## Networking/connection options
+redis_server_log_dir: "/var/log/redis"
+redis_server_data_dir: "{{ mount_path }}/redis-server"
+
+# Networking/connection options
 redis_server_bind: 0.0.0.0
 redis_server_port: 6379
 redis_server_password: false
+
 # Slave replication options
 redis_server_min_slaves_to_write: 0
 redis_server_min_slaves_max_lag: 10
 redis_server_tcp_backlog: 10000
 redis_server_tcp_keepalive: 20
+
 # Max connected clients at a time
 redis_server_maxclients: 30000
 redis_server_timeout: 0
@@ -26,6 +31,7 @@ redis_server_timeout: 0
 ## Replication options
 # Set slaveof just as you would in redis.conf. (e.g. "redis01 6379")
 redis_server_slaveof: false
+
 # Make slaves read-only. "yes" or "no"
 redis_server_slave_read_only: "yes"
 redis_server_slave_priority: 100
