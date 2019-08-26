@@ -8,7 +8,7 @@
 </h1>
 
 <p align="center" style="font-size: 1.2rem;">
-    This ansible role is used to install Redis server on Debian.
+    This ansible role is used to setup Redis server with docker on Debian.
      </p>
 
 <p align="center">
