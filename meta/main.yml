@@ -21,3 +21,5 @@ galaxy_info:
   galaxy_tags:
     - redis
     - docker
+    - redis-cli
+    - ubuntu
