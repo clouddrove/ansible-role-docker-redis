@@ -97,7 +97,7 @@ Followiing things includes in this role:
   mount_path: /data
   redis_server_opt_dir: "/opt/redis-server"
   redis_server_config_dir: "{{ redis_server_opt_dir }}/config"
-  redis_server_log_dir: "/var/log/redis-server"
+  redis_server_log_dir: "/var/log/redis"
   redis_server_data_dir: "{{ mount_path }}/redis-server"
   redis_server_bind: 0.0.0.0
   redis_server_port: 6379
