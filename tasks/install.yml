@@ -26,6 +26,7 @@
   service:
     name: redis
     state: restarted
+    enabled: true
   changed_when: false
 
 - name: wait for redis to become ready
