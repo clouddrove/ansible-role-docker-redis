@@ -22,11 +22,18 @@ badges:
     image: "https://img.shields.io/badge/License-MIT-blue.svg"
     url: "LICENSE.md"
   - name: "Distribution"
-    image: "https://img.shields.io/badge/ubuntu-16.x-orange?style=flat&logo=ubuntu"
-    url: "https://ubuntu.com/"
-  - name: "Distribution"
     image: "https://img.shields.io/badge/ubuntu-18.x-orange?style=flat&logo=ubuntu"
     url: "https://ubuntu.com/"
+  - name: "Distribution"
+    image: "https://img.shields.io/badge/ubuntu-20.x-orange?style=flat&logo=ubuntu"
+    url: "https://ubuntu.com/"
+  - name: "Distribution"
+    image: "https://img.shields.io/badge/CentOS-8-green?style=flat&logo=centos"
+    url: "https://www.centos.org/"
+  - name: "Distribution"
+    image: "https://img.shields.io/badge/Amazone_linux-2-yellow?style=flat&logo=linux"
+    url: "https://aws.amazon.com/amazon-linux-ami/"
+  - name: "Actions"
 
 # Prerequesties to display
 # yamllint disable
@@ -60,7 +67,7 @@ usage: |-
 # Variables use in the project
 variables: |-
   ```yaml
-    redis_version: "5.0.3"
+    redis_version: "6.2"
     redis_user: redis
     redis_group: redis
     mount_path: /data

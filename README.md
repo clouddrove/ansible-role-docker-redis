@@ -19,12 +19,17 @@
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="Licence">
 </a>
 <a href="https://ubuntu.com/">
-  <img src="https://img.shields.io/badge/ubuntu-16.x-orange?style=flat&logo=ubuntu" alt="Distribution">
-</a>
-<a href="https://ubuntu.com/">
   <img src="https://img.shields.io/badge/ubuntu-18.x-orange?style=flat&logo=ubuntu" alt="Distribution">
 </a>
-
+<a href="https://ubuntu.com/">
+  <img src="https://img.shields.io/badge/ubuntu-20.x-orange?style=flat&logo=ubuntu" alt="Distribution">
+</a>
+<a href="https://www.centos.org/">
+  <img src="https://img.shields.io/badge/centos-8.x-orange" alt="Distribution">
+</a>
+<a href="https://aws.amazon.com/amazon-linux-ami/">
+  <img src="https://img.shields.io/badge/Amazone_linux-2-yellow?style=flat&logo=linux" alt="Distribution">
+</a>
 </p>
 <p align="center">
 
@@ -75,7 +80,7 @@ Followiing things includes in this role:
 ## Variables
 
 ```yaml
-redis_version: "5.0.3"
+redis_version: "6.2"
 redis_user: redis
 redis_group: redis
 mount_path: /data
