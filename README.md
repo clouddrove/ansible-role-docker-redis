@@ -13,7 +13,7 @@
 <p align="center">
 
 <a href="https://www.ansible.com">
-  <img src="https://img.shields.io/badge/Ansible-2.8-green?style=flat&logo=ansible" alt="Ansible">
+  <img src="https://img.shields.io/badge/Ansible-2.9-green?style=flat&logo=ansible" alt="Ansible">
 </a>
 <a href="LICENSE.md">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="Licence">
@@ -54,7 +54,7 @@ Smaller roles are created for each environment elements; which also include task
 
 This module has a few dependencies:
 
-- [Ansible2.8](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+- [Ansible2.9](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 - [Python](https://www.python.org/downloads)
 - [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu)
 
