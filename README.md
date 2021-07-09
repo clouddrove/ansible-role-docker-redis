@@ -30,6 +30,9 @@
 <a href="https://aws.amazon.com/amazon-linux-ami/">
   <img src="https://img.shields.io/badge/Amazone_linux-2-yellow?style=flat&logo=linux" alt="Distribution">
 </a>
+<a href="https://github.com/clouddrove/ansible-role-docker-redis/actions/workflows/lint.yml">
+  <img src="https://github.com/clouddrove/ansible-role-docker-redis/actions/workflows/lint.yml/badge.svg" alt="Actions">
+</a>
 </p>
 <p align="center">
 
