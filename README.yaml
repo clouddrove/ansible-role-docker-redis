@@ -34,6 +34,8 @@ badges:
     image: "https://img.shields.io/badge/Amazone_linux-2-yellow?style=flat&logo=linux"
     url: "https://aws.amazon.com/amazon-linux-ami/"
   - name: "Actions"
+    image: "https://github.com/clouddrove/ansible-role-docker-redis/actions/workflows/lint.yml/badge.svg"
+    url: "https://github.com/clouddrove/ansible-role-docker-redis/actions/workflows/lint.yml"
 
 # Prerequesties to display
 # yamllint disable
