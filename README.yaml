@@ -55,13 +55,13 @@ what_includes:
 
 #  description of this project
 description: |-
-  This ansible role is used to setup Redis server with docker on Debian.
+  This ansible role is used to setup Redis server with docker on linux.
 
 # How to use this project
 usage: |-
   ```yaml
   - hosts: localhost
-    remote_user: ubuntu
+    remote_user: root
     become: true
     roles:
       - clouddrove.ansible_role_docker_redis
