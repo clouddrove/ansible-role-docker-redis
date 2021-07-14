@@ -16,22 +16,31 @@ github_repo: clouddrove/ansible-role-docker-redis
 # Badges to display
 badges:
   - name: "Ansible"
-    image: "https://img.shields.io/badge/Ansible-2.8-green?style=flat&logo=ansible"
+    image: "https://img.shields.io/badge/Ansible-2.9-green?style=flat&logo=ansible"
     url: "https://www.ansible.com"
   - name: "Licence"
     image: "https://img.shields.io/badge/License-MIT-blue.svg"
     url: "LICENSE.md"
   - name: "Distribution"
-    image: "https://img.shields.io/badge/ubuntu-16.x-orange?style=flat&logo=ubuntu"
-    url: "https://ubuntu.com/"
-  - name: "Distribution"
     image: "https://img.shields.io/badge/ubuntu-18.x-orange?style=flat&logo=ubuntu"
     url: "https://ubuntu.com/"
+  - name: "Distribution"
+    image: "https://img.shields.io/badge/ubuntu-20.x-orange?style=flat&logo=ubuntu"
+    url: "https://ubuntu.com/"
+  - name: "Distribution"
+    image: "https://img.shields.io/badge/CentOS-8-green?style=flat&logo=centos"
+    url: "https://www.centos.org/"
+  - name: "Distribution"
+    image: "https://img.shields.io/badge/Amazon_linux-2-yellow?style=flat&logo=linux"
+    url: "https://aws.amazon.com/amazon-linux-ami/"
+  - name: "Actions"
+    image: "https://github.com/clouddrove/ansible-role-docker-redis/actions/workflows/lint.yml/badge.svg"
+    url: "https://github.com/clouddrove/ansible-role-docker-redis/actions/workflows/lint.yml"
 
 # Prerequesties to display
 # yamllint disable
 prerequesties:
-  - name: "Ansible2.8"
+  - name: "Ansible2.9"
     url: "https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html"
   - name: "Python"
     url: "https://www.python.org/downloads"
@@ -46,13 +55,13 @@ what_includes:
 
 #  description of this project
 description: |-
-  This ansible role is used to setup Redis server with docker on Debian.
+  This ansible role is used to setup Redis server with docker on linux.
 
 # How to use this project
 usage: |-
   ```yaml
   - hosts: localhost
-    remote_user: ubuntu
+    remote_user: root
     become: true
     roles:
       - clouddrove.ansible_role_docker_redis
@@ -60,7 +69,7 @@ usage: |-
 # Variables use in the project
 variables: |-
   ```yaml
-    redis_version: "5.0.3"
+    redis_version: "6.2"
     redis_user: redis
     redis_group: redis
     mount_path: /data

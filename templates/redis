@@ -3,7 +3,7 @@
 set -eux -o pipefail
 
 # pull the image before so we dont first remove the container and then pull
-docker pull redis:"{{ redis_version }}-stretch"
+docker pull redis:"{{ redis_version }}"
 
 docker rm -f -v redis || :
 
@@ -12,4 +12,4 @@ docker run -u root --net=host --rm --name=redis \
 	-v {{ redis_server_data_dir }}:/var/lib/redis:rw \
 	-v {{ redis_server_data_dir }}:/data:rw \
 	-v {{ redis_server_config_dir }}:/etc/redis-server:rw \
-   redis:"{{ redis_version }}-stretch"  redis-server /etc/redis-server/redis_server.conf
+   redis:"{{ redis_version }}"  redis-server /etc/redis-server/redis_server.conf
