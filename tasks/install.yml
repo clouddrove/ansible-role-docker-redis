@@ -1,15 +1,15 @@
 ---
 
-- name: copy redis script
-  template:
+- name: Copy redis script
+  ansible.builtin.template:
     src: "redis"
     dest: /usr/local/bin/redis
     mode: 0755
     owner: root
     group: root
 
-- name: copy redis script
-  template:
+- name: Copy redis script
+  ansible.builtin.template:
     src: "redis.service"
     dest: /etc/systemd/system/redis.service
     mode: 0644
@@ -17,20 +17,20 @@
     group: root
 
 - name: Install redis tools
-  apt:
-    name: redis-tools
+  ansible.builtin.apt:
+    name: Redis-tools
     state: present
     update_cache: true
 
-- name: restart redis service is restarted
-  service:
-    name: redis
+- name: Restart redis service is restarted
+  ansible.builtin.service:
+    name: Redis
     state: restarted
     enabled: true
   changed_when: false
 
-- name: wait for redis to become ready
-  wait_for:
+- name: Wait for redis to become ready
+  ansible.builtin.wait_for:
     host: "{{ redis_server_bind }}"
     port: "{{ redis_server_port }}"
     state: started

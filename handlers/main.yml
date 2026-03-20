@@ -1,20 +1,20 @@
 ---
 # handlers for ansible-role-docker-redis
 
-- name: restart redis
-  service:
-    name: redis
+- name: Restart redis
+  ansible.builtin.service:
+    name: Redis
     state: restarted
     enabled: true
 
-- name: start redis
-  service:
-    name: redis
+- name: Start redis
+  ansible.builtin.service:
+    name: Redis
     state: started
     enabled: true
 
-- name: reload redis
-  service:
-    name: redis
+- name: Reload redis
+  ansible.builtin.service:
+    name: Redis
     state: reloaded
     enabled: true

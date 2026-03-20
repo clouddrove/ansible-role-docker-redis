@@ -1,7 +1,7 @@
 ---
 
-- name: create redis dirs
-  file:
+- name: Create redis dirs
+  ansible.builtin.file:
     path: "{{ item|safe|trim }}"
     state: directory
     owner: "{{ redis_user }}"
@@ -15,8 +15,8 @@
     - "{{ redis_server_config_dir }}"
     - "{{ redis_server_data_dir }}"
 
-- name: create redis configuration file
-  template:
+- name: Create redis configuration file
+  ansible.builtin.template:
     dest: "{{ redis_server_config_dir }}/{{ item | basename }}"
     owner: "{{ redis_user }}"
     group: "{{ redis_group }}"
